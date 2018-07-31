@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        android:padding="15dp"
+        tools:context=".registration">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="36dp"
+            android:text="Checkout Order"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp">
+
+
+            <EditText
+                android:id="@+id/FCname"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="First Name" />
+
+            <EditText
+                android:id="@+id/LCname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Last Name" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/CUnitnumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_marginTop="25dp"
+            android:inputType="textPostalAddress"
+            android:hint="Unit/Apt number" />
+
+        <EditText
+            android:id="@+id/CAddress1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:ems="10"
+            android:inputType="textPostalAddress"
+            android:hint="Address1" />
+
+
+        <EditText
+            android:id="@+id/CAddress2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:ems="10"
+            android:inputType="textPostalAddress"
+            android:hint="Address2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:textSize="18dp"
+            android:text="Payment Type:-"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <RadioButton
+                android:id="@+id/Ptype1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Visa" />
+
+            <RadioButton
+                android:id="@+id/Ptype2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="Mastercard" />
+
+            <RadioButton
+                android:id="@+id/Ptype3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="Debit" />
+
+
+
+
+        </LinearLayout>
+        <EditText
+            android:id="@+id/Cardnumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:inputType="number"
+            android:drawableLeft="@drawable/creditcard"
+            android:drawablePadding="10dp"
+            android:hint="Cardnumber" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/ExpDate"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:inputType="date"
+                android:drawableLeft="@drawable/calander"
+                android:drawablePadding="10dp"
+                android:hint="Exp Date" />
+
+            <EditText
+                android:id="@+id/Cvv"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:inputType="numberPassword"
+                android:drawableLeft="@drawable/cvv"
+                android:drawablePadding="10dp"
+                android:hint="Cvv" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="checkout"
+                android:layout_marginRight="10dp"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="@color/White"
+                android:text="Checkout"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</ScrollView>
