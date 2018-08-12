@@ -17,7 +17,7 @@ public class Book_Table {
 
 
     static final String BOOK_TABLE_CREATE = "create table book (_id integer primary key autoincrement,BOOKNAME  text,BOOKAUTHOR text,BOOKIMAGE integer ,BOOKLINK text,BOOKDESCRIPTION text,BOOKSTATUS integer);";
-    static final String ISSUE_TABLE_CREATE = "create table issue (_id integer primary key autoincrement,BOOKID,BOOKNAME text,BOOKAUTHOR text,BOOKIMAGE integer,BOOKLINK text  integer,ISSUEDATE long ,DUEDATE long,EXTENSION integer);";
+    static final String ISSUE_TABLE_CREATE = "create table issue (_id integer primary key autoincrement,BOOKID text,BOOKNAME text,BOOKAUTHOR text,BOOKIMAGE integer,BOOKLINK text  integer,ISSUEDATE long ,DUEDATE long,EXTENSION integer,ISSUESTATUS integer);";
     public SQLiteDatabase db;
     private final Context context;
     private DataBase dbHelper;
@@ -62,6 +62,7 @@ public class Book_Table {
         contentValues.put("ISSUEDATE", issuedate);
         contentValues.put("DUEDATE", duedate);
         contentValues.put("EXTENSION", 1);
+        contentValues.put("ISSUESTATUS", 1);
 
         db.insert("issue", null, contentValues);
     }
@@ -71,7 +72,7 @@ public class Book_Table {
         //String[] columns = new String[]{"IssuePatient.P_ID","Details._id","Details.FNAME","Details.LNAME", "IssuePatient.ISSUE","IssuePatient.DETAILS","IssuePatient.DATE"};
         //String whereClause="IssuePatient.P_ID=Details._id";
         //Cursor cursor = db.query(true,"IssuePatient,Details",columns,null,null,null,null,null,null);
-        Cursor cursor=db.rawQuery("SELECT * from book WHERE _id <= 9 and BOOKSTATUS = 1",null );
+        Cursor cursor=db.rawQuery("SELECT * from book WHERE _id <= 9 and BOOKSTATUS = 1" ,null );
         if (cursor != null) {
             cursor.moveToFirst();
         }
@@ -83,7 +84,7 @@ public class Book_Table {
         //String[] columns = new String[]{"IssuePatient.P_ID","Details._id","Details.FNAME","Details.LNAME", "IssuePatient.ISSUE","IssuePatient.DETAILS","IssuePatient.DATE"};
         //String whereClause="IssuePatient.P_ID=Details._id";
         //Cursor cursor = db.query(true,"IssuePatient,Details",columns,null,null,null,null,null,null);
-        Cursor cursor=db.rawQuery("SELECT * from issue",null );
+        Cursor cursor=db.rawQuery("SELECT * from issue WHERE ISSUESTATUS = 1",null );
         if (cursor != null) {
             cursor.moveToFirst();
         }

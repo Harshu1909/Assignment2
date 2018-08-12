@@ -20,6 +20,7 @@ public class Splash extends AppCompatActivity {
 
     Book_Table book;
     Login_Registration_Backend login_registration_backend;
+    Book_Table book_table;
 
 
     SharedPreferences sharedPreferences;
@@ -30,6 +31,11 @@ public class Splash extends AppCompatActivity {
 
         login_registration_backend = new Login_Registration_Backend(this);
         login_registration_backend = login_registration_backend.open();
+
+        book_table = new Book_Table(this);
+        book_table = book_table.open();
+
+
 
 
 
