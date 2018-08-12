@@ -20,6 +20,8 @@ public class DataBase extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(Login_Registration_Backend.DATABASE_CREATE);
+        db.execSQL(Book_Table.BOOK_TABLE_CREATE);
+        db.execSQL(Book_Table.ISSUE_TABLE_CREATE);
 
     }
 

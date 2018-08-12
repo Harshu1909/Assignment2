@@ -15,8 +15,7 @@ public class HomeMenu extends AppCompatActivity {
 
     public void Booklist(View view) {
 
-        Intent booklist = new Intent(HomeMenu.this,ViewItemList.class);
-        startActivity(booklist);
+
     }
 
     public void viewaccount(View view) {
@@ -27,13 +26,11 @@ public class HomeMenu extends AppCompatActivity {
 
     public void viewhistory(View view) {
 
-        Intent viewhistory = new Intent(HomeMenu.this,BuyItems.class);
-        startActivity(viewhistory);
+
     }
 
     public void cancelorder(View view) {
 
-        Intent cancelorder = new Intent(HomeMenu.this,CancelOrderList.class);
-        startActivity(cancelorder);
+
     }
 }

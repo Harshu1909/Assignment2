@@ -14,10 +14,11 @@
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
+            android:id="@+id/BookIssue"
             android:background="@color/colorPrimaryDark"
             android:textColor="@color/White"
             android:onClick="checkoutItem"
-            android:text="Buy now"/>
+            android:text="Issue Book"/>
         <Button
             android:layout_width="160dp"
             android:layout_marginLeft="5dp"
@@ -46,18 +47,30 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:id="@+id/BookName"
+            android:paddingTop="5dp"
+            android:paddingBottom="10dp"
+            android:text="Customer Review"
+            android:textSize="20dp"/>
 
         <ImageView
+            android:id="@+id/image"
             android:layout_width="300dp"
             android:layout_height="300dp"
+            android:layout_gravity="center"
             android:src="@drawable/itemimage1"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
             android:paddingTop="15dp"
-            android:text="CDN $150"
-            android:textSize="25dp"/>
+            android:text="Customer Review"
+            android:textSize="20dp"/>
 
         <ImageView
             android:layout_width="160dp"
@@ -67,7 +80,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:paddingTop="10dp"
             android:textStyle="bold"
             android:text="Description:-"/>
@@ -75,6 +88,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/BookDescription"
             android:textSize="20dp"
             android:paddingTop="10dp"
             android:textStyle="bold"

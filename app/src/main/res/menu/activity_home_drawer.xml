@@ -4,22 +4,30 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
         <item
-            android:id="@+id/View_item_list"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="View Item List" />
+            android:id="@+id/Home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Home" />
+
         <item
-            android:id="@+id/refund_order"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Refund Orders" />
-        <item
-            android:id="@+id/order_list"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Order List" />
+            android:id="@+id/Issue_Books_list"
+            android:icon="@drawable/ic_library_books_black_24dp"
+            android:title="Issue Books List" />
         <item
             android:id="@+id/account"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_account_box_black_24dp"
             android:title="Account" />
+
+        <item
+            android:id="@+id/About"
+            android:icon="@drawable/ic_format_align_justify_black_24dp"
+            android:title="About us" />
+
+        <item
+            android:id="@+id/Logout"
+            android:icon="@drawable/ic_power_settings_new_black_24dp"
+            android:title="Logout" />
     </group>
 
 </menu>
