@@ -2,6 +2,7 @@ package com.example.harshpatel.assignment1;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
@@ -33,6 +34,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static com.example.harshpatel.assignment1.MainActivity.MyPREFERENCES;
 import static com.example.harshpatel.assignment1.Splash.BitMapToString;
 import static com.loopj.android.http.AsyncHttpClient.log;
 
@@ -42,6 +44,8 @@ public class Home extends AppCompatActivity
     ListView books;
     Book_Table book_table;
     CursorAdapter cursorAdapter;
+
+    SharedPreferences sharedPreferences;
 
 
 
@@ -186,6 +190,26 @@ public class Home extends AppCompatActivity
 
             Intent viewaccount =  new Intent(Home.this,ViewAccount.class);
             startActivity(viewaccount);
+
+        }
+
+        else if (id == R.id.About){
+
+            Intent intent = new Intent(this,Aboutus.class);
+            startActivity(intent);
+
+        }
+
+        else if(id == R.id.Logout){
+
+            sharedPreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("EMAIL", null);
+            editor.apply();
+            editor.commit();
+            Intent intent = new Intent(Home.this, MainActivity.class);
+            startActivity(intent);
+            Home.this.finish();
 
         }
 

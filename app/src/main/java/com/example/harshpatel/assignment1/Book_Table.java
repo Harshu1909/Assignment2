@@ -9,6 +9,8 @@ import android.graphics.Bitmap;
 
 import java.text.Bidi;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Book_Table {
@@ -17,7 +19,7 @@ public class Book_Table {
 
 
     static final String BOOK_TABLE_CREATE = "create table book (_id integer primary key autoincrement,BOOKNAME  text,BOOKAUTHOR text,BOOKIMAGE integer ,BOOKLINK text,BOOKDESCRIPTION text,BOOKSTATUS integer);";
-    static final String ISSUE_TABLE_CREATE = "create table issue (_id integer primary key autoincrement,BOOKID text,BOOKNAME text,BOOKAUTHOR text,BOOKIMAGE integer,BOOKLINK text  integer,ISSUEDATE long ,DUEDATE long,EXTENSION integer,ISSUESTATUS integer);";
+    static final String ISSUE_TABLE_CREATE = "create table issue (_id integer primary key autoincrement,BOOKID text,BOOKNAME text,BOOKAUTHOR text,BOOKIMAGE integer,BOOKLINK text  integer,ISSUEDATE long ,DUEDATE long,EXTENSION integer,ISSUESTATUS integer,TODAYDATE long);";
     public SQLiteDatabase db;
     private final Context context;
     private DataBase dbHelper;
@@ -116,4 +118,64 @@ public class Book_Table {
         db.update("issue", updatedValues, where, new String[]{id});
 
     }
+
+    public void TodayDateBook(String date) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("TODAYDATE", date);
+
+        db.insert("issue", null, contentValues);
+    }
+
+    public Cursor dueBookid() {
+
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat sdf1 = new SimpleDateFormat("MM-dd-yyyy");
+        String expDate = sdf1.format(c.getTime());
+        //String[] columns = new String[]{"IssuePatient.P_ID","Details._id","Details.FNAME","Details.LNAME", "IssuePatient.ISSUE","IssuePatient.DETAILS","IssuePatient.DATE"};
+        //String whereClause="IssuePatient.P_ID=Details._id";
+        //Cursor cursor = db.query(true,"IssuePatient,Details",columns,null,null,null,null,null,null);
+        Cursor cursor=db.rawQuery("SELECT BOOKID from issue WHERE DUEDATE > TODAYDATE",new String[]{expDate});
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        return cursor;
+    }
+
+    public void dueBook(String date) {
+
+
+
+
+        ContentValues updatedMainBook = new ContentValues();
+        ContentValues updatedIssueBook = new ContentValues();
+
+        updatedIssueBook.put("ISSUESTATUS", 0);
+        updatedMainBook.put("BOOKSTATUS", 1);
+
+
+
+        db.update("issue", updatedIssueBook, "BOOKID = ?",new String[]{date});
+        db.update("book", updatedMainBook, "_id = ?",new String[]{date});
+
+    }
+
+    public void dueBook(String issueid,String bookid) {
+
+
+
+
+        ContentValues updatedMainBook = new ContentValues();
+        ContentValues updatedIssueBook = new ContentValues();
+
+        updatedIssueBook.put("ISSUESTATUS", 0);
+        updatedMainBook.put("BOOKSTATUS", 1);
+
+
+
+        db.update("issue", updatedIssueBook, "_id = ?",new String[]{issueid});
+        db.update("book", updatedMainBook, "_id = ?",new String[]{bookid});
+
+    }
+
 }

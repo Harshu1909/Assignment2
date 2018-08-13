@@ -3,6 +3,7 @@ package com.example.harshpatel.assignment1;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.provider.CalendarContract;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,14 +15,17 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class View_issue_book extends AppCompatActivity {
 
     TextView Bookname,BookAuthor,BookDue,BookExtension;
     Intent intent;
-    String issueid,link,extension;
+    String issueid,bookid,link,extension,due;
     Button Extension;
 
     Book_Table book;
@@ -40,8 +44,10 @@ public class View_issue_book extends AppCompatActivity {
 
 
         issueid = intent.getStringExtra("id");
+        bookid = intent.getStringExtra("bookid");
         link = intent.getStringExtra("link");
         extension = intent.getStringExtra("extension");
+        due = intent.getStringExtra("duedate");
 
         Bookname = (TextView)findViewById(R.id.bookname);
         BookAuthor = (TextView)findViewById(R.id.authorname);
@@ -97,12 +103,26 @@ public class View_issue_book extends AppCompatActivity {
                             // if this button is clicked, close
                             // current activity
                             if (extension.equals("1")){
-                                Calendar c = Calendar.getInstance();
-                                c.add(Calendar.DATE, 30);
-                                Date expDate = c.getTime();
+
+                                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
 
-                                book.updateExtension(issueid,expDate.toString());
+                                Date myDate = null;
+
+                                String[] separated = due.split("-");
+                                int month = Integer.parseInt(separated[0]);
+                                int day = Integer.parseInt(separated[1]);
+                                int year = Integer.parseInt(separated[2]);
+
+
+                                Calendar cal = new GregorianCalendar(year,month,day);
+
+                                cal.add(Calendar.DAY_OF_MONTH,0);
+                                SimpleDateFormat sdf1 = new SimpleDateFormat("MM-dd-yyyy");
+                                String expDate = sdf1.format(cal.getTime());
+
+
+                                book.updateExtension(issueid,expDate);
                                 Intent intent =new Intent(View_issue_book.this,Issue_Books_list.class);
                                 startActivity(intent);
 
@@ -126,4 +146,24 @@ public class View_issue_book extends AppCompatActivity {
             // show it
             alertDialog.show();
         }
+
+    public void ReturnBook(View view) {
+
+        book.dueBook(issueid,bookid);
+        Intent intent = new Intent(this,Issue_Books_list.class);
+        startActivity(intent);
+        this.finish();
+    }
+
+
+    public static class DateUtil
+    {
+        public static Date addDays(Date date, int days)
+        {
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(date);
+            cal.add(Calendar.DATE, days); //minus number would decrement the days
+            return cal.getTime();
+        }
+    }
 }

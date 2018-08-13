@@ -12,6 +12,7 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -60,9 +61,11 @@ public class ViewItemDetails extends AppCompatActivity {
         String issuedate = DateFormat.getDateInstance().format(new Date());
         Calendar c = Calendar.getInstance();
         c.add(Calendar.DATE, 30);
-        Date expDate = c.getTime();
+        SimpleDateFormat sdf1 = new SimpleDateFormat("MM-dd-yyyy");
+        String expDate = sdf1.format(c.getTime());
 
-        book_table.IssueBook(id,name,author,image,link,issuedate,expDate.toString());
+
+        book_table.IssueBook(id,name,author,image,link,issuedate,expDate);
         Toast.makeText(this, "Book Has been issued", Toast.LENGTH_SHORT).show();
 
         Intent checkoutItem = new Intent(ViewItemDetails.this,Home.class);

@@ -31,7 +31,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Issue_Books_list" />
         <activity android:name=".View_issue_book" />
-        <activity android:name=".Webview"/>
+        <activity android:name=".Webview" />
+        <activity android:name=".Aboutus"></activity>
     </application>
 
 </manifest>

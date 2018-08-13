@@ -41,7 +41,8 @@ public class Issue_Books_list extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Cursor cursor = (Cursor) issuelist.getItemAtPosition(i);
 
-                String id = cursor.getString(cursor.getColumnIndexOrThrow("book._id"));
+                String id = cursor.getString(cursor.getColumnIndexOrThrow("issue._id"));
+                String bookid = cursor.getString(cursor.getColumnIndexOrThrow("BOOKID"));
                 String name = cursor.getString(cursor.getColumnIndexOrThrow("BOOKNAME"));
                 String author = cursor.getString(cursor.getColumnIndexOrThrow("BOOKAUTHOR"));
                 Integer image = cursor.getInt(cursor.getColumnIndexOrThrow("BOOKIMAGE"));
@@ -52,6 +53,7 @@ public class Issue_Books_list extends AppCompatActivity {
 
                 Intent data = new Intent(Issue_Books_list.this, View_issue_book.class);
                 data.putExtra("id", id);
+                data.putExtra("bookid", bookid);
                 data.putExtra("name", name);
                 data.putExtra("author", author);
                 data.putExtra("image", image);
