@@ -5,13 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Bitmap;
 
-import java.text.Bidi;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 public class Book_Table {
     static final String DATABASE_NAME = "Assignment2.db";
@@ -42,7 +38,7 @@ public class Book_Table {
         db.close();
     }
 
-    public void InsertBook(String name, String author, Integer image,String link, String description) {
+    public long InsertBook(String name, String author, Integer image, String link, String description) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("BOOKNAME", name);
         contentValues.put("BOOKAUTHOR", author);
@@ -51,10 +47,11 @@ public class Book_Table {
         contentValues.put("BOOKDESCRIPTION", description);
         contentValues.put("BOOKSTATUS", 1);
 
-        db.insert("book", null, contentValues);
+        return db.insert("book", null, contentValues);
+
     }
 
-    public void IssueBook(String id,String name,String author,Integer image,String link , String issuedate, String duedate) {
+    public long IssueBook(String id,String name,String author,Integer image,String link , String issuedate, String duedate) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("BOOKID", id);
         contentValues.put("BOOKNAME", name);
@@ -66,7 +63,7 @@ public class Book_Table {
         contentValues.put("EXTENSION", 1);
         contentValues.put("ISSUESTATUS", 1);
 
-        db.insert("issue", null, contentValues);
+        return db.insert("issue", null, contentValues);
     }
 
 
@@ -94,7 +91,9 @@ public class Book_Table {
         return cursor;
     }
 
-    public void updateEntry(String id) {
+
+
+    public long updateEntry(String id) {
 
         ContentValues updatedValues = new ContentValues();
 
@@ -102,11 +101,11 @@ public class Book_Table {
 
 
         String where = "_id = ?";
-        db.update("book", updatedValues, where, new String[]{id});
+        return db.update("book", updatedValues, where, new String[]{id});
 
     }
 
-    public void updateExtension(String id,String due) {
+    public long updateExtension(String id,String due) {
 
         ContentValues updatedValues = new ContentValues();
 
@@ -115,15 +114,15 @@ public class Book_Table {
 
 
         String where = "_id = ?";
-        db.update("issue", updatedValues, where, new String[]{id});
+        return  db.update("issue", updatedValues, where, new String[]{id});
 
     }
 
-    public void TodayDateBook(String date) {
+    public long TodayDateBook(String date) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("TODAYDATE", date);
 
-        db.insert("issue", null, contentValues);
+        return db.insert("issue", null, contentValues);
     }
 
     public Cursor dueBookid() {

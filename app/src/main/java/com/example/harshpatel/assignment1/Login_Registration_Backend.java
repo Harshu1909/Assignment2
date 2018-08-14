@@ -42,7 +42,7 @@ public class Login_Registration_Backend {
         db.close();
     }
 
-    public void Insert(String FName, String LName, String Userid, String Password, String Add1, String Add2, String City, String State, String Country) {
+    public long Insert(String FName, String LName, String Userid, String Password, String Add1, String Add2, String City, String State, String Country) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("FNAME", FName);
         contentValues.put("LNAME", LName);
@@ -54,7 +54,7 @@ public class Login_Registration_Backend {
         contentValues.put("STATE", State);
         contentValues.put("COUNTRY", Country);
 
-        db.insert("login_registration", null, contentValues);
+       return db.insert("login_registration", null, contentValues);
     }
 
     public String Login(String userid) {
@@ -91,14 +91,14 @@ public class Login_Registration_Backend {
         return b;
     }
 
-    public void newpass(String mail, String pass) {
+    public long newpass(String mail, String pass) {
         ContentValues updatedValues = new ContentValues();
         // Assign values for each row.
         updatedValues.put("PASSWORD", pass);
 
 
-        String where = "EMAIL = ?";
-        db.update("login_registration", updatedValues, where, new String[]{mail});
+        String where = "USERID = ?";
+        return db.update("login_registration", updatedValues, where, new String[]{mail});
 
     }
 
@@ -130,7 +130,7 @@ public class Login_Registration_Backend {
     }
 
 
-    public void UpdateAccount(String id, String fname, String lname, String username,String add1, String add2, String city, String state, String country) {
+    public long UpdateAccount(String id, String fname, String lname, String username,String add1, String add2, String city, String state, String country) {
 
 
         ContentValues contentValues = new ContentValues();
@@ -145,7 +145,7 @@ public class Login_Registration_Backend {
 
 
         String where = "ID = ?";
-        db.update("login_registration", contentValues, where, new String[]{id});
+        return db.update("login_registration", contentValues, where, new String[]{id});
     }
 
 }

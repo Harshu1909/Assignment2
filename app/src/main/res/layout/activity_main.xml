@@ -37,7 +37,7 @@
         android:inputType="textPersonName"
         android:drawableLeft="@drawable/ic_email_black_24dp"
         android:drawablePadding="5dp"
-        android:hint="Username/Email id"
+        android:hint="Username"
         android:layout_marginTop="30dp"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="80dp"/>
@@ -93,6 +93,7 @@
         android:layout_marginTop="25dp"
         android:layout_gravity="center"
         android:onClick="registration"
+        android:id="@+id/btnRegister"
         android:text="Create new account"/>
 
 </LinearLayout>

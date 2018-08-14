@@ -107,6 +107,7 @@
                 android:layout_width="123dp"
                 android:layout_height="wrap_content"
                 android:onClick="update"
+                android:id="@+id/update"
                 android:background="@color/colorPrimaryDark"
                 android:textColor="@color/White"
                 android:layout_marginRight="5dp"

@@ -28,6 +28,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,6 +87,8 @@ public class Home extends AppCompatActivity
 
 
 
+
+
         books = (ListView) findViewById(R.id.list_view);
 
         String[] from = { "BOOKNAME", "BOOKAUTHOR","BOOKIMAGE"};
@@ -118,6 +121,7 @@ public class Home extends AppCompatActivity
                 data.putExtra("discription", discription);
                 data.putExtra("link", link);
                 startActivity(data);
+                Home.this.finish();
 
             }
         });
@@ -145,8 +149,10 @@ public class Home extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
+        }
+        else {
             super.onBackPressed();
+            this.finish();
         }
     }
 
@@ -222,4 +228,5 @@ public class Home extends AppCompatActivity
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
+
 }

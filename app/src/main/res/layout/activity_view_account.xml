@@ -26,21 +26,20 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginTop="30dp">
 
 
-            <TextView
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:text="Name:-"
-                android:textStyle="bold"
-                android:textSize="18dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:text="First Name:-"
+                    android:textStyle="bold"
+                    android:textSize="18dp" />
 
                 <TextView
                     android:id="@+id/fname"
@@ -74,14 +73,14 @@
 
 
                 <TextView
-
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:text="Name:-"
+                    android:text="Last Name:-"
                     android:textStyle="bold"
                     android:textSize="18dp" />
+
 
                 <TextView
                     android:id="@+id/lname"
@@ -89,7 +88,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
-
                     android:textSize="18dp" />
 
 
@@ -118,7 +116,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:text="username/Emailid:-"
+                    android:text="User Name"
                     android:textStyle="bold"
                     android:textSize="18dp" />
 

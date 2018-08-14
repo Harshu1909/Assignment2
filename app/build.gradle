@@ -16,6 +16,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    testOptions{
+
+    }
 }
 
 dependencies {
@@ -31,4 +34,7 @@ dependencies {
     implementation 'com.loopj.android:android-async-http:1.4.9'
     implementation 'com.google.code.gson:gson:2.2.4'
     implementation 'com.squareup.picasso:picasso:2.5.0'
+    testImplementation "org.mockito:mockito-core:1.9.5"
+    //import library here
+    testImplementation 'org.robolectric:robolectric:3.8'
 }

@@ -70,14 +70,20 @@ public class ViewItemDetails extends AppCompatActivity {
 
         Intent checkoutItem = new Intent(ViewItemDetails.this,Home.class);
         startActivity(checkoutItem);
+        this.finish();
     }
 
     public void cancel(View view) {
 
-//        Intent cancel = new Intent(ViewItemDetails.this,ViewItemList.class);
-//        startActivity(cancel);
-//        this.finish();
+        Intent cancel = new Intent(ViewItemDetails.this,Home.class);
+        startActivity(cancel);
+        this.finish();
     }
 
-
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this,Home.class);
+        startActivity(intent);
+        this.finish();
+    }
 }

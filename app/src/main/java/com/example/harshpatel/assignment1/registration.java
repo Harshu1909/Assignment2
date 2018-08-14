@@ -86,13 +86,11 @@ public class registration extends AppCompatActivity {
         }
     }
 
-    public void clear(View view) {
 
-        Fname.setText("");
-        Lname.setText("");
-        Username.setText("");
-        Password.setText("");
-        Cpassword.setText("");
+    public void cancel(View view) {
 
+        Intent intent = new Intent(this,registration.class);
+        startActivity(intent);
+        this.finish();
     }
 }

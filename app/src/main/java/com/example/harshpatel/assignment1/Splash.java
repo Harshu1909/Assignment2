@@ -42,21 +42,24 @@ public class Splash extends AppCompatActivity {
         book_table = new Book_Table(this);
         book_table = book_table.open();
 
+
+
         Calendar c = Calendar.getInstance();
         SimpleDateFormat sdf1 = new SimpleDateFormat("MM-dd-yyyy");
         String expDate = sdf1.format(c.getTime());
         book_table.TodayDateBook(expDate);
 
-        book_table.dueBook(expDate);
+
+
 
 
         Cursor cursor = book_table.IssuequeueAll();
-        if (cursor==null) {
+        if (cursor.getCount()==0) {
 
-            Toast.makeText(this, "Nothing to due", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "0", Toast.LENGTH_SHORT).show();
 
         }
-        if(cursor==null) {
+        else {
 
             String s1 = cursor.getString(cursor.getColumnIndexOrThrow("DUEDATE"));
             try {

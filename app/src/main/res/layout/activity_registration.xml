@@ -52,7 +52,7 @@
         android:ems="10"
         android:layout_marginTop="25dp"
         android:inputType="textPersonName"
-        android:hint="Username/Email id" />
+        android:hint="Username" />
 
     <EditText
         android:id="@+id/Password"
@@ -140,16 +140,16 @@
             android:layout_marginRight="10dp"
             android:background="@color/colorPrimaryDark"
             android:textColor="@color/White"
-            android:text="Registration"/>
+            android:text="Register"/>
 
         <Button
             android:layout_width="123dp"
             android:layout_height="wrap_content"
-            android:onClick="clear"
+            android:onClick="cancel"
             android:layout_marginLeft="10dp"
             android:background="@color/colorPrimaryDark"
             android:textColor="@color/White"
-            android:text="CLear" />
+            android:text="Cancel" />
 
     </LinearLayout>
 

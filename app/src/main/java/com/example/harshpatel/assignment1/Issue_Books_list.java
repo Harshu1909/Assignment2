@@ -62,6 +62,8 @@ public class Issue_Books_list extends AppCompatActivity {
                 data.putExtra("link", link);
                 data.putExtra("extension", extension);
                 startActivity(data);
+
+                Issue_Books_list.this.finish();
             }
         });
 
