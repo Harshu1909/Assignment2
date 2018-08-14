@@ -69,4 +69,11 @@ public class Issue_Books_list extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this,Home.class);
+        startActivity(intent);
+        this.finish();
+    }
 }

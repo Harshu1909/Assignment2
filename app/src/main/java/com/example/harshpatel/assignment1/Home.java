@@ -188,6 +188,7 @@ public class Home extends AppCompatActivity
 
             Intent intent =new Intent(Home.this,Issue_Books_list.class);
             startActivity(intent);
+            this.finish();
 
 
 

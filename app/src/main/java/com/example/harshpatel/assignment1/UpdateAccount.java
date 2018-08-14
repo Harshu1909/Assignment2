@@ -98,4 +98,12 @@ public class UpdateAccount extends AppCompatActivity {
 
 
     }
+
+    public void cancel(View view) {
+
+        Intent intent =  new Intent(this,ViewAccount.class);
+        startActivity(intent);
+        this.finish();
+
+    }
 }

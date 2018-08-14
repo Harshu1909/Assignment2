@@ -116,11 +116,11 @@
             <Button
                 android:layout_width="123dp"
                 android:layout_height="wrap_content"
-                android:onClick="view"
+                android:onClick="cancel"
                 android:background="@color/colorPrimaryDark"
                 android:textColor="@color/White"
                 android:layout_marginLeft="5dp"
-                android:text="CLear" />
+                android:text="Cancel" />
 
         </LinearLayout>
 
